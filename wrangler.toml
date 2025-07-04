@@ -1,0 +1,8 @@
+name = "kiroku"
+compatibility_date = "2025-07-04"
+
+# 2025-07-04
+
+[assets]
+directory = "./dist"
+not_found_handling = "404-page"

@@ -9,8 +9,7 @@ type ftttype = {
   frontmatter: {
     title: string,
     date: string,
-    id: string,
-    name: string
+    id: string
   }
 }
 
@@ -22,7 +21,6 @@ export function getStaticPaths() {
       props: {
         title: items.frontmatter.title,
         date: items.frontmatter.date,
-        name: items.frontmatter.name,
         content: items.Content
       }
     }
