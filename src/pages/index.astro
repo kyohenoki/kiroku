@@ -1,6 +1,8 @@
 ---
 import Head from "../katachi/head.astro"
 import Body from "../katachi/body.astro"
+
+import Hitotsu from "../kiroku/hitotsu.mdx"
 ---
 
 <html>
@@ -8,8 +10,12 @@ import Body from "../katachi/body.astro"
     <title>記録</title>
   </Head>
   <Body>
-    <div class="p-4 text-2xl">
-      <h1>記録 Kiroku</h1>
+    <div class="p-4">
+      <h1 class="text-2xl">記録 Kiroku</h1>
+      <h2 class="text-lg text-neutral-600">色んなことを書きたいです</h2>
+      <div>
+        <Hitotsu/>
+      </div>
     </div>
   </Body>
 </html>
