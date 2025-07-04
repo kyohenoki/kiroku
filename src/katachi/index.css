@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+:root {
+  font-family: "SF Safari", "SF Pro", "Hiragino Sans", system-ui, sans-serif;
+}
+
+@font-face {
+  font-family: "SF Safari";
+  src: local(-apple-system);
+  unicode-range: U+00-52F, U+1E00-1FFF, U+2200-22FF;
+}
