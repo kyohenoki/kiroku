@@ -1,0 +1,46 @@
+---
+import Head from "../katachi/head.astro"
+import Body from "../katachi/body.astro"
+
+import type { AstroComponentFactory } from "astro/runtime/server/index.js"
+
+type ftttype = {
+  Content: AstroComponentFactory,
+  frontmatter: {
+    title: string,
+    date: string,
+    id: string,
+    name: string
+  }
+}
+
+export function getStaticPaths() {
+  const tsu: ftttype[] = Object.values(import.meta.glob('../kiroku/*.mdx', { eager: true }))
+  return tsu.map(items => {
+    return {
+      params: {kiroku: items.frontmatter.id},
+      props: {
+        title: items.frontmatter.title,
+        date: items.frontmatter.date,
+        name: items.frontmatter.name,
+        content: items.Content
+      }
+    }
+  })
+}
+
+const mdx = Astro.props
+---
+
+<html>
+  <Head>
+    <title>{mdx.title}</title>
+  </Head>
+  <Body>
+    <div class="p-4">
+      <h1 class="text-2xl">{mdx.title}</h1>
+      <h2 class="text-lg text-neutral-600">{mdx.date}</h2>
+      <mdx.content/>
+    </div>
+  </Body>
+</html>
