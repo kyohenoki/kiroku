@@ -5,3 +5,7 @@
 .wrangler/
 
 .DS_Store
+
+site.webmanifest
+web-app-manifest-512x512.png
+web-app-manifest-192x192.png
