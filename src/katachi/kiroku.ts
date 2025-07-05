@@ -34,13 +34,13 @@ function zikan(zikan: futaype[]) {
 }
 
 function tomi(time: string) {
-    const d = DateTime.fromFormat(time, "yyyy-MM-dd HH:mm")
+    const d = DateTime.fromFormat(time, "yyyy/MM/dd HH:mm")
     return d.toMillis()
 }
 
 function tofo(time: number) {
   const d = DateTime.fromMillis(time)
-  return d.toFormat("yyyy-MM-dd HH:mm")
+  return d.toFormat("yyyy/MM/dd HH:mm")
 }
 
 function henkan(zk: number[]) {

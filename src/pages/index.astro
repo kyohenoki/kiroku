@@ -10,8 +10,8 @@ import { futatsu, narabi } from "../katachi/kiroku"
   </Head>
   <Body>
     <div class="py-4 px-6">
-      <div class="font-medium pb-2">
-        <h1 class="text-[1.7rem] text-[#4671bf]">記録帳</h1>
+      <div class="pb-2">
+        <h1 class="text-[1.7rem] font-medium text-[#4671bf]">記録帳</h1>
         <h2 class="text-[1.35rem] text-neutral-600">色んなことを書きたい</h2>
       </div>
       <div>
@@ -22,7 +22,7 @@ import { futatsu, narabi } from "../katachi/kiroku"
               return (
                 <div class="pb-2">
                   <a href={item.frontmatter.id} class="text-[1.35rem] font-medium">{item.frontmatter.title}</a>
-                  <p class="text-[1.35rem] text-neutral-600">{item.frontmatter.date}</p>
+                  <p class="text-[1.35rem] text-neutral-500">{item.frontmatter.date}</p>
                 </div>
               );
             }
