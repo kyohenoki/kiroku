@@ -1,7 +1,6 @@
-import { string } from "astro:schema"
 import { DateTime } from "luxon"
 
-export const futatsu = futakae()
+export const futatsu = futakae('f')
 
 type futaype = {
   frontmatter: {
@@ -9,10 +8,18 @@ type futaype = {
   }
 }
 
-function futakae() {
+export const narabi = futakae('n')
+
+function futakae(mode: string) {
   const tsu: futaype[] = Object.values(import.meta.glob('../kiroku/*.mdx', { eager: true }))
-  console.log(zikan(tsu))
-  return tsu
+  const zika = zikan(tsu)
+  const henka = henkan(zika)
+  const zenbu = awaseru(zika, henka)
+  if (mode === 'n') {
+    return zenbu
+  } else {
+    return tsu
+  }
 }
 
 function zikan(zikan: futaype[]) {
@@ -23,12 +30,7 @@ function zikan(zikan: futaype[]) {
     list.push(tomi(zikan[count].frontmatter.date))
     count += 1
   }
-  const sorted = list.sort((a, b) => b - a)
-  const modosu = sorted.map(a => {
-    return tofo(a)
-  })
-//  const narabi = sorted.map(i => .indexOf(i))
-  return modosu
+  return list
 }
 
 function tomi(time: string) {
@@ -41,11 +43,15 @@ function tofo(time: number) {
   return d.toFormat("yyyy-MM-dd HH:mm")
 }
 
+function henkan(zk: number[]) {
+  const list = [...zk].sort((a, b) => b - a)
+  const modosu = list.map(a => {
+    return tofo(a)
+  })
+  return list 
+}
 
-// 並び替え後の listA に対して、元の index を探す
-// const order = listA.map(v => originalA.indexOf(v)); // [2, 1, 0]
-
-// listB をその順番に並び替え
-// const sortedB = order.map(i => listB[i]);
-
-// console.log(sortedB); // ['c', 'b', 'a']
+function awaseru(zk: number[], hn: number[]) {
+  const ban = hn.map(i => zk.indexOf(i))
+  return ban
+}

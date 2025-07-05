@@ -1,7 +1,7 @@
 ---
 import Head from "../katachi/head.astro"
 import Body from "../katachi/body.astro"
-import { futatsu } from "../katachi/kiroku"
+import { futatsu, narabi } from "../katachi/kiroku"
 ---
 
 <html>
@@ -16,13 +16,17 @@ import { futatsu } from "../katachi/kiroku"
       </div>
       <div>
         <div>
-          {futatsu.map(futatsu => {
-            return (
-              <div class="pb-2">
-                <a href={futatsu.frontmatter.id} class="text-[1.35rem] font-medium">{futatsu.frontmatter.title}</a>
-                <p class="text-[1.35rem] text-neutral-600">{futatsu.frontmatter.date}</p>
-              </div>
-            )
+          {narabi.map(n => {
+            const item = futatsu[n];
+            if (typeof item === "object" && item !== null && "frontmatter" in item) {
+              return (
+                <div class="pb-2">
+                  <a href={item.frontmatter.id} class="text-[1.35rem] font-medium">{item.frontmatter.title}</a>
+                  <p class="text-[1.35rem] text-neutral-600">{item.frontmatter.date}</p>
+                </div>
+              );
+            }
+            return null;
           })}
         </div>
       </div>
