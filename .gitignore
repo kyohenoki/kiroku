@@ -4,4 +4,9 @@
 .astro/
 .wrangler/
 
-.DS_Store/
+.DS_Store
+
+/public/favicon.png
+/public/favicon.svg
+/public/favicon2.svg
+/public/favicon.zip
