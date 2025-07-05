@@ -35,10 +35,17 @@ const mdx = Astro.props
     <title>{mdx.title}</title>
   </Head>
   <Body>
-    <div class="p-4">
-      <h1 class="text-2xl">{mdx.title}</h1>
-      <h2 class="text-lg text-neutral-600">{mdx.date}</h2>
-      <mdx.content/>
+    <div class="py-4 px-6">
+      <div class="pb-2">
+        <h1 class="text-[1.7rem] font-medium">{mdx.title}</h1>
+        <h2 class="text-[1.35rem] text-neutral-600">{mdx.date}</h2>
+      </div>
+      <div class="text-xl pb-2">
+        <mdx.content/>
+      </div>
+      <h3>
+        <a href="/" class="text-[1.35rem] font-medium">← 戻る</a>
+      </h3>
     </div>
   </Body>
 </html>

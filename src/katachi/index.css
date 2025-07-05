@@ -9,3 +9,8 @@
   src: local(-apple-system);
   unicode-range: U+00-52F, U+1E00-1FFF, U+2200-22FF;
 }
+
+html {
+  background-color: #f6f7f8;
+  color: #323537;
+}
